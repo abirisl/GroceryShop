@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider, useQuery, } from '@tanstack/react-que
 
 const queryClient = new QueryClient()
 
-import App from './App.jsx'
 import { router } from "./router/routes.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -1,13 +1,5 @@
 import React, { useState } from 'react'
-
-const navlinks = [
-    { name: "Home", route: "/Home" },
-    { name: "About", route: "/About" },
-    { name: "Products", route: "/Products" },
-    { name: "Blog", route: "/Blog" },
-    { name: "Career", route: "/Career" },
-    { name: "Contact", route: "/Contact" },
-]
+import { Link } from 'react-router-dom';
 
 const category = [
     { name: "Grocery and Grains", route: "/Grocery" },
@@ -43,9 +35,9 @@ function Navbar() {
                         {/* Category Selector */}
                         <div className="w-1/3">
                             <select
-                                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                className="w-full p-2 bg-emerald-400 text-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                             >
-                                <option value="">Select Category</option>
+                                <option value="">Product List</option>
                                 {category.map((item, index) => (
                                     <option key={index} value={item.route}>
                                         {item.name}
@@ -78,7 +70,7 @@ function Navbar() {
                     {/* Login/Signup */}
                     <div>
                         <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-                            Login
+                            <Link to="/login">Login</Link>
                         </button>
                     </div>
                 </div>
