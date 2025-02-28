@@ -5,6 +5,9 @@ function Banner() {
   return (
     <div>
         <img src={banner1} alt="" />
+        <div>
+          
+        </div>
     </div>
   )
 }
