@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Register() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="md:min-h-screen flex items-center justify-center bg-gray-100">
     <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
       <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Create an Account</h2>
       <form>
@@ -98,9 +99,9 @@ function Register() {
       <div className="mt-6 text-center">
         <p className="text-sm text-gray-600">
           Already have an account?{' '}
-          <a href="/login" className="font-medium text-lime-600 hover:text-lime-500">
+          <Link to="/login" className="font-medium text-lime-600 hover:text-lime-500">
             Log in
-          </a>
+          </Link>
         </p>
       </div>
     </div>
