@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const navlinks = [
     { name: "Home", route: "/" },
@@ -44,9 +45,9 @@ function Menubar() {
         <ul className={`md:flex md:space-x-6 ${isMenu ? 'block' : 'hidden'} mt-4 md:mt-0`}>
                 {navlinks.map((menu, index) => (
                     <li key={index} className="text-lime-800 hover:text-lime-600 font-medium">
-                        <a href={menu.route} className="hover:underline">
+                        <Link to={menu.route} className="hover:underline">
                             {menu.name}
-                        </a>
+                        </Link>
                     </li>
                 ))}
             </ul>
@@ -91,12 +92,12 @@ function Menubar() {
                     <ul className="p-4">
                         {navlinks.map((menu, index) => (
                             <li key={index} className="mb-4">
-                                <a
-                                    href={menu.route}
+                                <Link
+                                    to={menu.route}
                                     className="text-lime-800 hover:text-lime-600 font-medium"
                                 >
                                     {menu.name}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>
