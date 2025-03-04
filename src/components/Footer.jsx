@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear()
@@ -16,16 +17,16 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-2">Quick Links</h3>
             <ul>
-              <li><a href="/about" className="hover:underline">About Us</a></li>
-              <li><a href="/products" className="hover:underline">Products</a></li>
-              <li><a href="/contact" className="hover:underline">Contact</a></li>
+              <li><Link to="/products" className="hover:underline">Products</Link></li>
+              <li><Link to="/about" className="hover:underline">About Us</Link></li>
+              <li><Link to="/contact" className="hover:underline">Contact</Link></li>
               <li><a href="/faq" className="hover:underline">FAQ</a></li>
             </ul>
           </div>
 
           {/* Column 3: Contact Info */}
           <div>
-            <h3 className="text-xl font-bold mb-2">Contact Us</h3>
+            <h3 className="text-xl sfont-bold mb-2">Contact Us</h3>
             <p>Email: support@groceryshop.com</p>
             <p>Phone: +8801872900536</p>
             <p>Address: South Middle Halishar, Bandar, Chattagram</p>
