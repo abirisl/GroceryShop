@@ -21,7 +21,7 @@ function Menubar() {
   return (
     <div className="shadow-md">
       {/* Mobile Menu Button */}
-      <div className="flex justify-between items-center md:hidden">
+      <div className="flex justify-between items-center md:hidden mx-5">
         <img className="w-18 h-28" src={logo} alt="Logo" />
         <button
           onClick={toggleMenu}
@@ -69,7 +69,6 @@ function Menubar() {
           className="fixed inset-0 bg-black bg-opacity-50"
           onClick={toggleMenu}
         ></div>
-
         {/* Drawer Panel */}
         <div className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg">
           <div className="flex justify-end p-4">
