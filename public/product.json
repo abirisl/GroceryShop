@@ -1,0 +1,38 @@
+[
+    {
+        "image": "https://i.ibb.co.com/dw8GpdGS/chal.jpg", 
+        "name": "Buniyadi Chinigura Rice 1 Kg",
+        "description": "This is a high-quality product with amazing features.",
+        "price": 120
+    },
+    {
+        "image": "https://i.ibb.co.com/RTFnTCv3/nestum.jpg", 
+        "name": "NESTLE Nestum Honey Cereal 500g",
+        "description": "This is a high-quality product with amazing features.",
+        "price": 80
+    },
+    {
+        "image": "https://i.ibb.co.com/FqfrS2VB/fitness.jpg",
+        "name": "Muesli Fitness Nutritious Energy, Gluten Free (500g)", 
+        "description": "This is a high-quality product with amazing features.",
+        "price": 29.99
+    },
+    {
+        "image": "https://i.ibb.co.com/xqctKkbj/atta.jpg",
+        "name": "Fresh Atta - 2Kg",
+        "description": "This is a high-quality product with amazing features.",
+        "price": 150
+    },
+    {
+        "image": "https://i.ibb.co.com/nJByNg4/gura-Masla.jpg",
+        "name": "Pran Turmeric Powder - 200 gm",
+        "description": "This is a high-quality product with amazing features.",
+        "price": 109
+    },
+    {
+        "image": "https://i.ibb.co.com/Rp7X1KSW/dal.jpg",
+        "name": "FORTUNE Chana Dal, 500 Gm",
+        "description": "This is a high-quality product with amazing features.",
+        "price": 660
+    }
+]
