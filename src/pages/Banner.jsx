@@ -5,10 +5,6 @@ function Banner() {
   return (
     <div>
         <img src={banner1} alt="" />
-        <div> 
-          <p>gjfs</p>
-          <h1>hllo</h1>
-        </div>
     </div>
   )
 }
