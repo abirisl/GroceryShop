@@ -4,9 +4,9 @@ import logo from '../../assets/images/logo.png';
 
 const navlinks = [
   { name: 'Home', route: '/' },
-  { name: 'About', route: '/about' },
+  { name: 'About', route: '/aboutUs' },
   { name: 'Products', route: '/products' },
-  { name: 'Blog', route: '/blog' },
+  { name: 'Blog', route: '/blogPage' },
   { name: 'Career', route: '/career' },
   { name: 'Contact', route: '/contact' },
 ];
