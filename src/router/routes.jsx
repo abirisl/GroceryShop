@@ -4,30 +4,34 @@ import Home from "../pages/Home";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import ContactUs from "../pages/ContactUs";
+import Products from "../pages/Products/Products";
 
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element:<MainLayouts/>,
-      children:[
-        {
-            path: "/",
-            element: <Home/>
-        },
-        {
-          path: "/contact",
-          element: <ContactUs/>
+  {
+    path: "/",
+    element: <MainLayouts />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
       },
-        {
-          path: "/login",
-          element: <Login/>
-        },
-        {
-          path: "/register",
-          element: <Register/>
-        }
-      ]
-    },
-  ]);
-  
+      {
+        path: "/contact",
+        element: <ContactUs />
+      },
+      {
+        path: "/products",
+        element: <Products />
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/register",
+        element: <Register />
+      }
+    ]
+  },
+]);
