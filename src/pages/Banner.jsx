@@ -1,4 +1,4 @@
-import { Navigation, Pagination, Autoplay, Scrollbar, A11y } from 'swiper/modules';
+import { Pagination, Autoplay, Scrollbar, A11y } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -31,14 +31,13 @@ function Banner() {
   return (
     <div className="w-full">
       <Swiper
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay, Pagination]}
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
         }}
-        navigation={true}
         className="mySwiper"
       >
         {banners.map((banner, index) => (
