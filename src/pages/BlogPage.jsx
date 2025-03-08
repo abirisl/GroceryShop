@@ -44,7 +44,7 @@ const BlogPage = () => {
             {/* Hero Section */}
             <div className="relative h-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('https://i.ibb.co.com/tTWzpwcb/blog.jpg')" }}>
 
-                <div className="absolute "></div>
+                <div className="absolute"></div>
                 <div className="relative text-center text-white">
                     <h1 className="text-4xl sm:text-6xl font-bold">Our Blog</h1>
                     <p className="mt-4 text-lg sm:text-xl">Tips, Recipes, and Updates from FreshMart</p>

@@ -17,7 +17,7 @@ function Product({ product }) {
       {/* Product Details */}
       <div className="px-6 py-4">
         {/* Product Name */}
-        <div className="font-bold text-xl mb-2">{name}</div>
+        <div className="font-bold text-3xl mb-2 uppercase text-center">{name}</div>
 
         {/* Product Description */}
         <p className="text-gray-700 text-base">{description}</p>
