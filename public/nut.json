@@ -1,0 +1,37 @@
+[
+    {
+        "image": "https://i.ibb.co.com/yF8h6Z14/nuts.jpg",
+        "name": "CASHEW NUTS",
+        "weight": "Weight-250 gram",
+        "description": "",
+        "price": "450"
+    },
+    {
+        "image": "https://i.ibb.co.com/qtWxfsW/nut2.jpg",
+        "name": "PISTACHIO NUTS",
+        "weight": "Weight-240 gram",
+        "description": "",
+        "price": "380"
+    },
+    {
+        "image": "https://i.ibb.co.com/b8FgDGZ/nut3.jpg",
+        "name": "MIXED NUTS",
+        "weight": "Weight-135 gram",
+        "description": "",
+        "price": "295"
+    },
+    {
+        "image": "https://i.ibb.co.com/Q3D8CfVZ/nut5.jpg",
+        "name": "WASABI GREEN PEAS",
+        "weight": "Weight-200 gram",
+        "description": "",
+        "price": "315"
+    },
+    {
+        "image": "https://i.ibb.co.com/tTdw4pvc/nut4.jpg",
+        "name": "WASABI GREEN PEAS",
+        "weight": "Weight-100 gram",
+        "description": "",
+        "price": "180"
+    }
+]
