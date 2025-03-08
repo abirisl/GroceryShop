@@ -19,12 +19,13 @@ function Products() {
         slidesPerView={1} // Default number of slides visible
         spaceBetween={20} // Space between slides
         pagination={{ clickable: true }} // Pagination dots
+        
         autoplay={{ delay: 2000, disableOnInteraction: false }} // Autoplay with 3-second delay
         breakpoints={{
           640: { slidesPerView: 2 }, // 2 slides on screens >= 640px
           1024: { slidesPerView: 3 }, // 3 slides on screens >= 1024px
         }}
-        modules={[Pagination, Navigation, Autoplay]} // Add Autoplay module
+        modules={[Pagination, Autoplay]} // Add Autoplay module
         className="mySwiper"
       >
         {products.map((product, index) => (
