@@ -6,6 +6,7 @@ import Loading from '../Shared/Loading';
 import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc'; // Google icon
 import { FaFacebook, FaGithub } from 'react-icons/fa'; // Facebook and GitHub icons
+import Swal from 'sweetalert2'; // SweetAlert2 for alerts
 
 function Register() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -36,6 +37,17 @@ function Register() {
     }
 
     const onSubmit = data => {
+        // Check if passwords match
+        if (data.password !== data.confirmPassword) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Password Mismatch',
+                text: 'The passwords you entered do not match. Please try again.',
+            });
+            return; // Stop form submission
+        }
+
+        // If passwords match, proceed with registration
         console.log(data);
         createUserWithEmailAndPassword(data.email, data.password);
     };
@@ -43,7 +55,7 @@ function Register() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
+                <h2 className="text-2xl font-bold  text-center">Register</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {/* Name Field */}

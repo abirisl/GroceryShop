@@ -64,7 +64,7 @@ function Navbar() {
               {isLogoutVisible && (
                 <button
                   onClick={handleLogout}
-                  className="absolute right-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg p-2"
+                  className="absolute right-0 mt-12 bg-white border border-gray-200 rounded-md shadow-lg p-2"
                 >
                   Logout
                 </button>
@@ -128,7 +128,7 @@ function Navbar() {
               {isLogoutVisible && (
                 <button
                   onClick={handleLogout}
-                  className="absolute right-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg p-2"
+                  className="absolute right-0 mt-12 bg-white border border-gray-200 rounded-md shadow-lg p-2"
                 >
                   Logout
                 </button>

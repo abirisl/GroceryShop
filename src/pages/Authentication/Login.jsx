@@ -6,7 +6,9 @@ import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 import { FcGoogle } from 'react-icons/fc'; // Google icon
 import { FaFacebook, FaGithub } from 'react-icons/fa'; // Facebook and GitHub icons
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -27,16 +29,22 @@ function Login() {
     if (user || gUser) {
       navigate(from, { replace: true });
     }
-  }, [user, navigate, from]);
+  }, [user, gUser, navigate, from]);
 
-  let signError;
+  // Show SweetAlert2 for errors
+  useEffect(() => {
+    if (error || gError) {
+      Swal.fire({
+        title: 'Error!',
+        text: error?.message || gError?.message || 'An error occurred during login.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
+    }
+  }, [error, gError]);
 
   if (loading || gLoading) {
     return <Loading />;
-  }
-
-  if (error || gError) {
-    signError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>;
   }
 
   const onSubmit = data => {
@@ -176,6 +184,7 @@ function Login() {
           </p>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
