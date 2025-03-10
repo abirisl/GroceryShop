@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
+import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 
 const category = [
   { name: 'Grocery and Grains', route: '/Grocery' },
@@ -11,6 +13,14 @@ const category = [
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLogoutVisible, setIsLogoutVisible] = useState(false);
+  const [user] = useAuthState(auth);
+  const [signOut] = useSignOut(auth);
+
+  const handleLogout = async () => {
+    await signOut();
+    setIsLogoutVisible(false); // Hide the logout button after logging out
+  };
 
   return (
     <nav className="p-5 bg-white shadow-sm">
@@ -42,17 +52,34 @@ function Navbar() {
             </span>
           </div>
           {/* Login/Signup */}
-          <div>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-              <Link to="/login">Login</Link>
-            </button>
-          </div>
+          {user ? (
+            <div className="relative">
+              <button onClick={() => setIsLogoutVisible(!isLogoutVisible)}>
+                <img
+                  src={user?.photoURL}
+                  alt="Profile"
+                  className="h-10 w-10 rounded-full object-cover"
+                />
+              </button>
+              {isLogoutVisible && (
+                <button
+                  onClick={handleLogout}
+                  className="absolute right-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg p-2"
+                >
+                  Logout
+                </button>
+              )}
+            </div>
+          ) : (
+            <Link to="/login" className="text-blue-500 font-medium">
+              Login
+            </Link>
+          )}
         </div>
       </div>
 
       {/* Desktop View */}
       <div className="hidden md:flex justify-between items-center mt-4">
-
         {/* Category Selector & Search */}
         <div className="flex items-center gap-5 w-2/3">
           <div className="flex gap-2 bg-slate-100 p-3 rounded-md w-full">
@@ -89,11 +116,29 @@ function Navbar() {
             </span>
           </div>
           {/* Login/Signup */}
-          <div>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-              <Link to="/login">Login</Link>
-            </button>
-          </div>
+          {user ? (
+            <div className="relative">
+              <button onClick={() => setIsLogoutVisible(!isLogoutVisible)}>
+                <img
+                  src={user?.photoURL}
+                  alt="Profile"
+                  className="h-12 w-12 rounded-full object-cover"
+                />
+              </button>
+              {isLogoutVisible && (
+                <button
+                  onClick={handleLogout}
+                  className="absolute right-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg p-2"
+                >
+                  Logout
+                </button>
+              )}
+            </div>
+          ) : (
+            <Link to="/login" className="text-blue-500 font-medium">
+              Login
+            </Link>
+          )}
         </div>
       </div>
 

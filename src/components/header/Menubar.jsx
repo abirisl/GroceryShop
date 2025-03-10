@@ -22,7 +22,7 @@ function Menubar() {
     <div className="shadow-md">
       {/* Mobile Menu Button */}
       <div className="flex justify-between items-center md:hidden mx-5">
-        <img className="w-18 h-28" src={logo} alt="Logo" />
+        <img className="w-20 h-16" src={logo} alt="Logo" />
         <button
           onClick={toggleMenu}
           className="text-lime-800 hover:text-lime-600 focus:outline-none"
@@ -46,7 +46,7 @@ function Menubar() {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex md:items-center md:space-x-6">
-        <img className="w-18 h-28" src={logo} alt="Logo" />
+        <img className="w-24 h-20" src={logo} alt="Logo" />
         <ul className="flex space-x-6">
           {navlinks.map((menu, index) => (
             <li key={index} className="text-lime-800 hover:text-lime-600 font-medium">
