@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const category = [
   { name: 'Grocery and Grains', route: '/Grocery' },
@@ -14,11 +15,11 @@ const category = [
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLogoutVisible, setIsLogoutVisible] = useState(false);
-  const [user] = useAuthState(auth);
-  const [signOut] = useSignOut(auth);
+
+  const {signOutUser, user} = useContext(AuthContext)
 
   const handleLogout = async () => {
-    await signOut();
+    await signOutUser();
     setIsLogoutVisible(false); // Hide the logout button after logging out
   };
 

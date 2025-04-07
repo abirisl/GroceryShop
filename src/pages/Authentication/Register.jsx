@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -7,50 +7,44 @@ import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc'; // Google icon
 import { FaFacebook, FaGithub } from 'react-icons/fa'; // Facebook and GitHub icons
 import Swal from 'sweetalert2'; // SweetAlert2 for alerts
+import { AuthContext } from '../../Provider/AuthProvider';
 
 function Register() {
+
+    const {createUSer,user, googleUSer}  = useContext(AuthContext)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-    const [
-        createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useCreateUserWithEmailAndPassword(auth);
     const navigate = useNavigate();
 
     // Use useEffect to handle navigation after user is set
     useEffect(() => {
-        if (user || gUser) {
+        if (user) {
             navigate('/');
         }
-    }, [user, gUser, navigate]);
+    }, [user, navigate]);
 
-    let signError;
-
-    if (loading || gLoading) {
-        return <Loading />;
-    }
-
-    if (error || gError) {
-        signError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>;
-    }
-
-    const onSubmit = data => {
-        // Check if passwords match
+    const onSubmit = async (data) => {
         if (data.password !== data.confirmPassword) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Password Mismatch',
-                text: 'The passwords you entered do not match. Please try again.',
-            });
-            return; // Stop form submission
+          Swal.fire({
+            icon: 'error',
+            title: 'Password Mismatch',
+            text: 'The passwords you entered do not match. Please try again.',
+          });
+          return;
         }
-
-        // If passwords match, proceed with registration
-        console.log(data);
-        createUserWithEmailAndPassword(data.email, data.password);
-    };
+      
+        try {
+          const result = await createUSer(data.email, data.password);
+          console.log('Registration successful:', result);
+          // No need to navigate here - useEffect will handle it
+        } catch (error) {
+          console.error('Registration error:', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Registration Failed',
+            text: error.message,
+          });
+        }
+      };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -165,7 +159,7 @@ function Register() {
                         <div className="mt-6 grid grid-cols-3 gap-3">
                             {/* Google Button */}
                             <button
-                                onClick={() => signInWithGoogle()}
+                                onClick={googleUSer}
                                 className="w-full flex items-center justify-center px-8 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
                             >
                                 <FcGoogle className="h-5 w-5" />

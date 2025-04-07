@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
@@ -9,16 +9,18 @@ import { FaFacebook, FaGithub } from 'react-icons/fa'; // Facebook and GitHub ic
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 function Login() {
+
+  const {signUser,user,googleUSer} = useContext(AuthContext)
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const [
-    signInWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useSignInWithEmailAndPassword(auth);
+  // const [
+  //   signInWithEmailAndPassword,
+  //   user,
+  //   loading,
+  //   error,
+  // ] = useSignInWithEmailAndPassword(auth);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,30 +28,30 @@ function Login() {
 
   // Use useEffect to handle navigation after user is set
   useEffect(() => {
-    if (user || gUser) {
+    if (user) {
       navigate(from, { replace: true });
     }
-  }, [user, gUser, navigate, from]);
+  }, [user, navigate, from]);
 
   // Show SweetAlert2 for errors
-  useEffect(() => {
-    if (error || gError) {
-      Swal.fire({
-        title: 'Error!',
-        text: error?.message || gError?.message || 'An error occurred during login.',
-        icon: 'error',
-        confirmButtonText: 'OK',
-      });
-    }
-  }, [error, gError]);
+  // useEffect(() => {
+  //   if (error || gError) {
+  //     Swal.fire({
+  //       title: 'Error!',
+  //       text: error?.message || gError?.message || 'An error occurred during login.',
+  //       icon: 'error',
+  //       confirmButtonText: 'OK',
+  //     });
+  //   }
+  // }, [error, gError]);
 
-  if (loading || gLoading) {
-    return <Loading />;
-  }
+  // if (loading || gLoading) {
+  //   return <Loading />;
+  // }
 
   const onSubmit = data => {
     console.log(data);
-    signInWithEmailAndPassword(data.email, data.password);
+    signUser(data.email, data.password)
   };
 
   return (
@@ -150,7 +152,7 @@ function Login() {
           <div className="mt-6 grid grid-cols-3 gap-3">
             {/* Google Button */}
             <button
-              onClick={() => signInWithGoogle()}
+              onClick={googleUSer}
               className="w-full flex items-center justify-center px-8 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
             >
               <FcGoogle className="h-5 w-5" />
