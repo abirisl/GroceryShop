@@ -1,7 +1,13 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Nut({ nut, index }) { // Added `index` prop for numbering
-    const { name, weight, image, description, price } = nut;
+    const {id, name, weight, image, description, price } = nut;
+    const navigate= useNavigate();
+    const handleNavigate = () =>{
+        navigate(`/nuts/${id}`)
+    }
+
 
     return (
         <div className="max-w-sm rounded overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 relative">
@@ -35,7 +41,7 @@ function Nut({ nut, index }) { // Added `index` prop for numbering
                 <span className="text-lg font-semibold text-gray-900">${price}</span>
 
                 {/* Add to Cart Button */}
-                <button className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                <button onClick={handleNavigate} className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     Add to Cart
                 </button>
             </div>

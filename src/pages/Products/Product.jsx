@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Product({ product }) {
-  const { name, image, description, price } = product;
+  const {id, name, image, description, price } = product;
 
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -29,9 +30,9 @@ function Product({ product }) {
         <span className="text-lg font-semibold text-gray-900">${price}</span>
 
         {/* Add to Cart Button */}
-        <button className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <Link to={`/products/${id}`} className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
           Add to Cart
-        </button>
+        </Link>
       </div>
     </div>
   );
