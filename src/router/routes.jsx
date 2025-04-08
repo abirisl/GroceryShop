@@ -7,8 +7,6 @@ import AboutUs from "../pages/AboutUs";
 import BlogPage from "../pages/BlogPage";
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
-import Dashboard from "../pages/Dashboard/Dashboard";
-import PrivateRoute from "./privateRoute";
 
 
 export const router = createBrowserRouter([
@@ -44,12 +42,7 @@ export const router = createBrowserRouter([
         path: "/register",
         element: <Register />
       },
-      {
-        path: "/dashboard",
-        element: <PrivateRoute>
-          <Dashboard />
-        </PrivateRoute>
-      }
+     
     ]
   },
 ]);
