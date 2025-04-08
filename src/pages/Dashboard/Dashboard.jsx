@@ -3,19 +3,19 @@ import { FiPackage, FiShoppingCart, FiUsers, FiDollarSign, FiPieChart, FiTrendin
 
 const Dashboard = () => {
   // Sample data - replace with your actual data
-//   const stats = [
-//     { title: "Today's Sales", value: "$1,250", change: "+12%", icon: <FiDollarSign className="text-green-500" /> },
-//     { title: "Total Orders", value: "84", change: "+5%", icon: <FiShoppingCart className="text-blue-500" /> },
-//     { title: "Inventory Items", value: "256", status: "12 Low Stock", icon: <FiPackage className="text-orange-500" /> },
-//     { title: "Customers", value: "1,024", change: "+8%", icon: <FiUsers className="text-purple-500" /> }
-//   ];
+  const stats = [
+    { title: "Today's Sales", value: "$1,250", change: "+12%", icon: <FiDollarSign className="text-green-500" /> },
+    { title: "Total Orders", value: "84", change: "+5%", icon: <FiShoppingCart className="text-blue-500" /> },
+    { title: "Inventory Items", value: "256", status: "12 Low Stock", icon: <FiPackage className="text-orange-500" /> },
+    { title: "Customers", value: "1,024", change: "+8%", icon: <FiUsers className="text-purple-500" /> }
+  ];
 
-//   const recentOrders = [
-//     { id: "#ORD-001", customer: "John Doe", items: 5, amount: "$85.20", status: "Delivered" },
-//     { id: "#ORD-002", customer: "Jane Smith", items: 3, amount: "$42.50", status: "Processing" },
-//     { id: "#ORD-003", customer: "Robert Johnson", items: 7, amount: "$112.75", status: "Shipped" },
-//     { id: "#ORD-004", customer: "Emily Davis", items: 2, amount: "$28.90", status: "Pending" }
-//   ];
+  const recentOrders = [
+    { id: "#ORD-001", customer: "John Doe", items: 5, amount: "$85.20", status: "Delivered" },
+    { id: "#ORD-002", customer: "Jane Smith", items: 3, amount: "$42.50", status: "Processing" },
+    { id: "#ORD-003", customer: "Robert Johnson", items: 7, amount: "$112.75", status: "Shipped" },
+    { id: "#ORD-004", customer: "Emily Davis", items: 2, amount: "$28.90", status: "Pending" }
+  ];
 
   return (
     <div className="p-4 md:p-6 bg-gray-50 min-h-screen">
@@ -35,7 +35,7 @@ const Dashboard = () => {
       </div>
 
       {/* Stats Cards */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {stats.map((stat, index) => (
           <div key={index} className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
             <div className="flex justify-between">
@@ -57,7 +57,7 @@ const Dashboard = () => {
             </div>
           </div>
         ))}
-      </div> */}
+      </div>
 
       {/* Charts and Main Content */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
@@ -74,7 +74,7 @@ const Dashboard = () => {
         </div>
 
         {/* Quick Actions */}
-        {/* <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
           <h2 className="font-semibold text-lg mb-4">Quick Actions</h2>
           <div className="space-y-3">
             <button className="w-full flex items-center justify-between p-3 bg-blue-50 text-blue-600 rounded-md hover:bg-blue-100">
@@ -94,11 +94,11 @@ const Dashboard = () => {
               <FiUsers />
             </button>
           </div>
-        </div> */}
+        </div>
       </div>
 
       {/* Recent Orders */}
-      {/* <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+      <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
         <div className="flex justify-between items-center mb-4">
           <h2 className="font-semibold text-lg">Recent Orders</h2>
           <button className="text-blue-600 text-sm hover:underline">View All</button>
@@ -136,7 +136,7 @@ const Dashboard = () => {
             </tbody>
           </table>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
