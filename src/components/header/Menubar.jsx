@@ -9,7 +9,7 @@ const navlinks = [
   { name: 'Blog', route: '/blogPage' },
   { name: 'Career', route: '/career' },
   { name: 'Contact', route: '/contact' },
- 
+  { name: 'Dashboard', route: '/dashboard' }
 ];
 
 function Menubar() {
