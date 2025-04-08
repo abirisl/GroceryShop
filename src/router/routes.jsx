@@ -8,7 +8,7 @@ import BlogPage from "../pages/BlogPage";
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
 import Dashboard from "../pages/Dashboard/Dashboard";
-import PrivateRoute from "./privateRoute";
+import PrivateRoute from "../Routes/PrivateRoute";
 
 
 export const router = createBrowserRouter([
